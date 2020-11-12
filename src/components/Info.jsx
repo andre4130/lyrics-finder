@@ -4,7 +4,6 @@ import Artist from './Artist';
 import Media from './Media'
 
 const Info  = ({letra, artista, bio, cancion, video, vidLinks}) => {
-    console.log('in app',video);
     return (
         <div className="container mt-5">
             <div className="row">

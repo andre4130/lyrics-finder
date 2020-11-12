@@ -32,7 +32,8 @@ legend::before {
   content: '';
   width: calc(120% );
   display: block;
-  background-color:#EB6864;
+  /* background-color:#5BC0DE; */
+  background-color:#337ab7;
   height: 40px;
   z-index:-1;
   left: -30px;

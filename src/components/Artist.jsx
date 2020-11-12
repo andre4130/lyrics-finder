@@ -33,7 +33,8 @@ const Artist = ({ bio, artista }) => {
                         <p className="card-text"><b>Genre: </b>{strGenre}</p>}
                         {!bio.intFormedYear ? null :
                         <p className="card-text"><b>Formed in: </b>{intFormedYear}</p>}
-                        <Carousel>
+                        {!bio.strArtistFanart ? null : <Carousel>
+                        
                             <Carousel.Item interval={2500}>
                                 <img
                                     className="d-block w-100"
@@ -57,7 +58,7 @@ const Artist = ({ bio, artista }) => {
                                     alt={`${bio.artista}`}
                                 />
                             </Carousel.Item>}
-                        </Carousel>
+                        </Carousel>}
                         <p className="card-text"></p>
                         <h2>Biography</h2>
                         <p className="letra">
