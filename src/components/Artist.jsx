@@ -1,34 +1,63 @@
 import React, { Fragment } from 'react';
+import { Carousel } from 'react-bootstrap';
 
 const Artist = ({ bio, artista }) => {
 
-    // if (Object.keys(bio).length === 0) return null;
+
 
     const { intFormedYear, strArtist, strArtistThumb, strBiographyEN, strCountry, strGenre } = bio
-    // const band = strArtist.toUpperCase();
-    // const artistaCap = artista.toUpperCase();
+
+
 
     return (
         <Fragment>
-            { bio === '' ? 
-            <div className="card border-light">
-                <div className="card-body">
-                <h2 className="mb-3">
-                    No results found for {artista.toUpperCase()}
-                </h2>
-                <p className="letra">Ooopss...it seems that the artist you're looking for, is not yet in our database...</p>
-            </div>
+            { bio === '' ?
+                <div className="card border-light">
+                    <div className="card-body">
+                        <h2 className="mb-3">
+                            No results found for {artista.toUpperCase()}
+                        </h2>
+                        <p className="letra">Ooopss...it seems that the artist you're looking for, is not yet in our database...</p>
+                    </div>
                 </div>
-                 :
+                :
                 <div className="card border-light">
                     <div className="card-body">
                         <h1 className="mb-2">
                             {strArtist.toUpperCase()}
                         </h1>
                         <img src={strArtistThumb} alt={bio.strArtistThumb} />
-                        <p className="card-text"><b>From: </b>{strCountry}</p>
-                        <p className="card-text"><b>Genre: </b>{strGenre}</p>
-                        <p className="card-text"><b>Formed in: </b>{intFormedYear}</p>
+                        {!bio.strCountry ? null :
+                        <p className="card-text"><b>From: </b>{strCountry}</p>}
+                        {!bio.strGenre ? null :
+                        <p className="card-text"><b>Genre: </b>{strGenre}</p>}
+                        {!bio.intFormedYear ? null :
+                        <p className="card-text"><b>Formed in: </b>{intFormedYear}</p>}
+                        <Carousel>
+                            <Carousel.Item interval={2500}>
+                                <img
+                                    className="d-block w-100"
+                                    src={bio.strArtistFanart}
+                                    alt="First slide"
+                                />
+                            </Carousel.Item>
+                            {!bio.strArtistFanart2 ? null :
+                            <Carousel.Item interval={2500}>
+                                <img
+                                    className="d-block w-100"
+                                    src={bio.strArtistFanart2}
+                                    alt="Third slide"
+                                />
+                            </Carousel.Item>}
+                            {!bio.strArtistFanart3 ? null :
+                            <Carousel.Item interval={2500}>
+                                <img
+                                    className="d-block w-100"
+                                    src={bio.strArtistFanart3}
+                                    alt={`${bio.artista}`}
+                                />
+                            </Carousel.Item>}
+                        </Carousel>
                         <p className="card-text"></p>
                         <h2>Biography</h2>
                         <p className="letra">

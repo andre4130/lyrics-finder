@@ -14,20 +14,6 @@ const Media = ({ video, cancion, artista, vidLinks }) => {
             :
             null
     )
-
-    // if (video.videoId === '') {
-    //     return
-    // } else {
-    //     const videoSrc = video.map(vid =>
-    //         vid.videoId !== null ?
-    //             {
-    //                 video: `https://www.youtube.com/embed/${vid.videoId}`,
-    //                 title: vid.videoTitle
-    //             } : ''
-    //     ); 
-
-
-
     return (
         <div className="card border-light">
             <div className="card-body">
