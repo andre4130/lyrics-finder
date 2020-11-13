@@ -40,4 +40,4 @@ You can check a demo of this application on the following link
 
 https://andre4130.github.io/lyrics-finder/
 
-### Go ahead and search for your favourite song and artist!
+### Now go ahead and search for your favourite song and artist!
