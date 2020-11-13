@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Lyrics Finder App
+This application was created with React Native and Styled with Bootswatch. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It fetches from three different API endpoints:
+For the artist information, we use www.theaudiodb.com
+For lyrics we fecth data from www.lyrics.ohv
+The videos are fetched directly from the YouTube API.
 
-## Available Scripts
+## Instructions for Installing the Application
 
-In the project directory, you can run:
+1. Clone this repository
+2. Install npm and node (if not yet installed)
+3. Open a Terminal in the project root and execute `npm install`
+4. Execute `npm start` to start the application 
 
-### `npm start`
+## Main Screen
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The main screen is very simple, you just have to search for an artist and a song of this artist. Autocomplete is not implemented in this App. The search will be sent to the three API endpoints, and the result will be returned asynchronically. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Main Screen](/src/images/readme/mainscreen.jpg)
 
-### `npm test`
+## Search Result
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Search Result](/src/assets/images/readme/searchresult.jpg)
 
-### `npm run build`
+If fetching from all API endpoints is successful, three different containers will be loaded with information:
+1- Band Info: it will return a picture of the band, information such as the date they were formed, where they come from and which genre do they play, several images, a full bio description and, if available, links to their social media.
+2- Lyrics: according to the song you chose, the Lyrics will be displayed in the second container. In the case the fechted API doesn't have the lyrics you chose, an error message will be displayed in this container.
+3- Videos: a selection of 3 videos will be shown according to the band and song you searched for. You can then listen to the song while you're reading the lyrics. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Possible Errors
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Error](/src/assets/images/readme/error.jpg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+It is possible that the band and song you are looking for, is not in the database we are fetching from. In case this happens, an error message will be displayed. Nevertheless, fetching is independent from each other, so it is possible that no info or lyrics are displayed, but videos are.
 
-### `npm run eject`
+## Webpage Deployment
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+You can check a demo of this application on the following link
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+https://andre4130.github.io/lyrics-finder/
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Go ahead and search for your favourite song and artist!

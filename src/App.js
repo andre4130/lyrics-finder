@@ -13,8 +13,9 @@ function App() {
   const [cancion, setCancion] = useState('');
   const [video, setVideo] = useState({
     videoId: [],
-    videoTitle: []
-});
+    videoTitle: [],
+    items: []
+  });
   const [vidLinks, setVidLinks] = useState([]);
 
   useEffect(() => {
@@ -35,12 +36,10 @@ function App() {
       ]);
 
       const response = await youtube.get('/search', {
-            params: {
-                q: query
-            }
+        params: {
+          q: query
+        }
       })
-
-      console.log('in app', response)        
       setArtista(artista);
       setLetra(letra.data.lyrics);
       if (informacion.data.artists != null) {
@@ -48,13 +47,20 @@ function App() {
       } else {
         setBio('')
       }
-      console.log(response.data)
       setCancion(cancion);
-      setVideo({
-        videoId: [response.data.items[0].id.videoId, response.data.items[1].id.videoId, response.data.items[2].id.videoId],
-        videoTitle: [response.data.items[0].snippet.title,response.data.items[1].snippet.title,response.data.items[2].snippet.title]
-      });
-      setVidLinks([response.data.items[0].id.videoId, response.data.items[1].id.videoId, response.data.items[2].id.videoId])
+      console.log(response.data.items)
+
+      if (response.data.items === []) {
+        console.log("array is empty")
+} else {
+        setVideo({
+          videoId: [response.data.items[0].id.videoId, response.data.items[1].id.videoId, response.data.items[2].id.videoId],
+          videoTitle: [response.data.items[0].snippet.title, response.data.items[1].snippet.title, response.data.items[2].snippet.title],
+          items: response.data.items
+        })
+      }
+
+      // setVidLinks([response.data.items[0].id.videoId, response.data.items[1].id.videoId, response.data.items[2].id.videoId])
     }
     searchApiLyrics();
 
@@ -64,6 +70,7 @@ function App() {
     <Fragment>
       <Formulario
         setBusquedaLetra={setBusquedaLetra}
+        bio={bio}
       />
       {Object.keys(busquedaLetra).length !== 0 ?
         <Info
